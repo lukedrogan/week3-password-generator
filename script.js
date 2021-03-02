@@ -29,9 +29,35 @@ function generatePassword(){
   var userWantsNumbers = confirm("Do you want numbers in your password?")
   var userWantsSpecial = confirm("Do you want special characters in your password?")
 
+  // Need to validate at least one of the confirms above has returned true and alert the user if not
+  if(userWantsUpperCase && userWantsLowerCase & userWantsNumbers & userWantsSpecial === false){
+    alert("Please confirm at least one of the selections");
+    return;
+  }
 
 
-  return "new password"
+  var masterCharacterStr = ""; 
+
+  if (userWantsUpperCase === true){
+    masterCharacterStr += upperCase; 
+  }
+  if (userWantsLowerCase === true){
+    masterCharacterStr += lowerCase; 
+  }
+  if (userWantsNumbers === true){
+    masterCharacterStr += numbers; 
+  }
+  if (userWantsSpecial === true){
+    masterCharacterStr += special; 
+  }
+
+  var finalPassword = "";
+
+  for(var i = 0; i < lengthOfPassword; i++){
+    finalPassword += masterCharacterStr[Math.floor(Math.random() * masterCharacterStr.length)]
+  }
+
+  return finalPassword; 
 }
 
 // Write password to the #password input
