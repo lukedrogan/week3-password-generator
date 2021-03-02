@@ -24,7 +24,12 @@ function generatePassword(){
     return;
   }
 
-  
+  var userWantsUpperCase = confirm("Do you want upper case letters in your password?")
+  var userWantsLowerCase = confirm("Do you want lower case letters in your password?")
+  var userWantsNumbers = confirm("Do you want numbers in your password?")
+  var userWantsSpecial = confirm("Do you want special characters in your password?")
+
+
 
   return "new password"
 }
