@@ -7,10 +7,24 @@ function generatePassword(){
   var numbers = "1234567890";
   var special = "!@£$%^&*()";
 
+  var lengthOfPassword = parseInt(prompt("How long would you like the password to be?"));
 
+  if (isNaN(lengthOfPassword) === true){
+    alert("Please enter a valid number");
+    return;
+  }
 
+  if (lengthOfPassword < 8){
+    alert("Please enter a number greater than 8");
+    return;
+  }
 
+  if (lengthOfPassword> 128){
+    alert("Please enter a number less than 128");
+    return;
+  }
 
+  
 
   return "new password"
 }
