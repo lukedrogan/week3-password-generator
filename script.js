@@ -1,11 +1,15 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateButton = document.querySelector("#generate");
+
+// Createe variable for each of the types of character that could be used in the password
 
 function generatePassword(){
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var numbers = "1234567890";
-  var special = "!@£$%^&*()";
+  var specialChar = "!@£$%^&*()";
+
+// Prompt the user to ask a series of questions to set up the password generator
 
   var lengthOfPassword = parseInt(prompt("How long would you like the password to be?"));
 
@@ -15,12 +19,12 @@ function generatePassword(){
   }
 
   if (lengthOfPassword < 8){
-    alert("Please enter a number greater than 8");
+    alert("Your password must be at least 8 characters long");
     return;
   }
 
-  if (lengthOfPassword> 128){
-    alert("Please enter a number less than 128");
+  if (lengthOfPassword > 128){
+    alert("Your password must be 128 characters or less");
     return;
   }
 
@@ -48,10 +52,12 @@ function generatePassword(){
     masterCharacterStr += numbers; 
   }
   if (userWantsSpecial === true){
-    masterCharacterStr += special; 
+    masterCharacterStr += specialChar; 
   }
 
   var finalPassword = "";
+
+  // Create a for loop to randomly select characters from the four variables assigned to generatePassword function
 
   for(var i = 0; i < lengthOfPassword; i++){
     finalPassword += masterCharacterStr[Math.floor(Math.random() * masterCharacterStr.length)]
@@ -70,4 +76,5 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateButton.addEventListener("click", writePassword);
+
